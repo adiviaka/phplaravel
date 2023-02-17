@@ -1,0 +1,1 @@
+alert('Hi! Welcome to my website home page!');
