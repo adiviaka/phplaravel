@@ -3,6 +3,7 @@
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Models\Category;
 
 
 /*
@@ -39,8 +40,15 @@ Route::apiresource("users", PostController::class);
 
 Route::controller(PostController::class)->group(function(){
     Route::get('/blog', 'index');
-    Route::get('/posts/{slug}', 'show');
+    // Route::get('/posts/{slug}', 'show');
+    Route::get('/posts/{post:slug}', 'show');
+    Route::get('/categories/{category:slug}', 'category');
+    Route::get('/categories', 'categories');
 });
+
+// Route::get('/categories/{category:slug}', function (Category $category) {
+// });
+
 // Route::get('posts/{slug}', function($slug)
 // {
 //     return view('post', [
